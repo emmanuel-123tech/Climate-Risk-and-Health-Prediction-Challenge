@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.zip
+*.pkl
+*.joblib
+outputs/
+checkpoints/
+.DS_Store
