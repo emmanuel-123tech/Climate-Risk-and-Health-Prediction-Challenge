@@ -1,19 +1,19 @@
 # Climate Risk & Health Prediction Challenge
 
-An end-to-end machine-learning project for the Zindi Climate Risk and Health Prediction Challenge, focused on predicting whether a mortality record is associated with a climate-sensitive outcome using structured health and climate features.
+A reproducible machine-learning project for the Zindi Climate Risk and Health Prediction Challenge, focused on predicting climate-sensitive mortality outcomes from structured health and environmental data.
 
-This repository captures the full workflow used in the project: exploratory analysis, data cleaning, feature engineering, model iteration, validation, and final reporting. It includes the original author-uploaded notebook, cleaned datasets, supporting documentation, and a snapshot of the performance history.
+This repository documents the end-to-end workflow used in the project: exploratory analysis, data preparation, feature engineering, model iteration, grouped validation, and leaderboard evaluation. It includes the original author-uploaded notebook, cleaned datasets, supporting documentation, and a summary of the experimental results.
 
 ## Project objective
 
-The task is a binary classification problem: determine whether a case should be labeled as climate-sensitive mortality based on a combination of demographic, time-based, geographic, and climate variables.
+The challenge is a binary classification task: determine whether a mortality record belongs to a climate-sensitive outcome category based on demographic, geographic, time-based, and climate-related variables.
 
-The official challenge evaluation prioritizes:
+The task is scored using the competition weighting:
 
 - F1 score: 60%
 - ROC-AUC: 40%
 
-The repository documents the modeling journey and the trade-offs between local validation and public leaderboard performance.
+The project emphasizes both predictive performance and the practical importance of threshold-aware evaluation under real-world data shifts.
 
 ## Repository structure
 
@@ -39,20 +39,21 @@ The repository documents the modeling journey and the trade-offs between local v
 │   └── ...
 ├── reports/
 │   └── leaderboard_scores.csv
-└── .gitignore
+├── .gitignore
+└── ...
 ```
 
-## What is in this repository
+## What is included
 
-- `data/`: cleaned training/test data, raw challenge inputs, and dataset guidance
-- `docs/`: project methodology, reproducibility notes, cleaning steps, and result interpretation
-- `reports/`: recorded leaderboard outcomes and evaluation snapshots
-- `_Climate_Risk_Health_Prediction_Ebiendele.ipynb`: the main notebook used for exploration, cleaning, modeling, and scoring
-- `requirements.txt`: Python dependencies used to reproduce the environment
+- `data/`: challenge datasets, cleaned tables, and dataset documentation
+- `docs/`: methodological notes, reproducibility details, exploratory analysis, and result interpretation
+- `reports/`: leaderboard score summaries and experiment records
+- `_Climate_Risk_Health_Prediction_Ebiendele.ipynb`: main notebook with the project workflow and model development
+- `requirements.txt`: Python dependencies required to reproduce the environment
 
 ## Environment setup
 
-Create and activate a virtual environment, then install dependencies:
+Create a virtual environment and install the dependencies:
 
 ```bash
 python -m venv .venv
@@ -60,36 +61,31 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-For Jupyter-based work:
+For notebook-based work:
 
 ```bash
 jupyter notebook
 ```
 
-Then open the notebook in the repository root or run the project in Google Colab using the notebook link below.
+The notebook is designed to be run in a local environment or opened in Google Colab, where the challenge CSV archive can be uploaded when required.
 
-## Reproducing the workflow
+## Reproducibility workflow
 
-The project is organized around a practical sequence:
+The project follows a standard machine-learning research pipeline:
 
-1. Data inspection and target understanding
-2. Exploratory data analysis
-3. Data cleaning and schema harmonization
-4. Feature engineering
-5. Model training and iterative experimentation
-6. Validation against grouped geographic splits
-7. Public leaderboard scoring and interpretation
+1. Data inspection and schema review
+2. Exploratory analysis of class balance and feature distributions
+3. Cleaning and schema harmonization
+4. Feature engineering across age, time, geography, and climate dimensions
+5. Model training and iteration across multiple versions
+6. Validation with grouped geographic splits
+7. Public metric comparison and result interpretation
 
-To reproduce the analysis:
-
-- Open `_Climate_Risk_Health_Prediction_Ebiendele.ipynb`
-- Run the setup cells
-- Upload the challenge data archive when prompted, if required by the environment
-- Follow the notebook pipeline through cleaning, feature engineering, model training, and output generation
+The notebook captures the experimental history from baseline models through iterative model refinements.
 
 ## Results summary
 
-The project records the following public leaderboard performance:
+The repository records the following public leaderboard scores from the challenge:
 
 | Version | Overall | ROC-AUC | F1 |
 | --- | ---: | ---: | ---: |
@@ -99,33 +95,35 @@ The project records the following public leaderboard performance:
 | V15 (best recorded here) | 0.841567435 | 0.848599439 | 0.836879432 |
 | V16 (documented experiment) | 0.835233566 | 0.847899159 | 0.826789838 |
 
-The repository also notes a reported final placement of 63rd out of 1,601 participants on Zindi, although this is a user-reported competition placement and not a claim that a single version was the best model at all times.
+The project documentation also notes a reported final competition placement of 63rd out of 1,601 participants. This is a user-reported overall placement and is not presented as evidence that a single model version was definitively optimal across all evaluation settings.
 
 ## Documentation index
 
-- `docs/DATA_CLEANING.md` — cleaning logic and data preparation steps
-- `docs/EXPLORATORY_ANALYSIS.md` — exploratory analysis and pattern discovery
-- `docs/METHODOLOGY.md` — model methodology and validation design
-- `docs/REPRODUCIBILITY.md` — setup and execution notes
-- `docs/RESULTS.md` — experiment results and interpretation
-- `data/README.md` — dataset guidance and licensing notes
+- `docs/DATA_CLEANING.md` — data preparation and schema cleaning steps
+- `docs/EXPLORATORY_ANALYSIS.md` — exploratory analysis and feature diagnostics
+- `docs/METHODOLOGY.md` — model design, validation approach, and feature-engineering rationale
+- `docs/REPRODUCIBILITY.md` — environment and execution guidance
+- `docs/RESULTS.md` — experiment outcomes and interpretation
+- `data/README.md` — data summary, attribution, and challenge-specific guidance
 
 ## Data and attribution
 
-This project uses data from the Zindi Climate Risk and Health Prediction Challenge:
+This repository uses data from the Zindi Climate Risk and Health Prediction Challenge:
 
-- Challenge page: https://zindi.world/competitions/climate-risk-health-prediction-challenge
+- https://zindi.world/competitions/climate-risk-health-prediction-challenge
 
-The repository includes the challenge data and the corresponding data license documentation under `data/`. The dataset is intended for research, analysis, and contest reproducibility. Please refer to the challenge terms and the included license files for exact usage conditions.
+The dataset and supporting documentation are included in the repository under `data/`, along with licensing and attribution information for challenge content. The project documentation also clarifies that the target variable identifies a climate-sensitive mortality category rather than proving a direct causal effect of climate on any single record.
 
-The modeling code and project documentation in this repository are authored by emmanuel-123tech and are provided as part of the project work.
+## Key methodological notes
 
-## Notes and limitations
+This project is a predictive modeling exercise rather than a causal inference study. The repository explicitly emphasizes that the target should not be interpreted as proof that climate directly caused a specific death.
 
-This project is a competition-focused prediction exercise, not a causal inference study. The target variable reflects a climate-sensitive mortality classification, and the repository explicitly warns against interpreting any single record as proof that climate caused a particular health outcome.
+A central finding in the project is that local grouped validation can be optimistic relative to public leaderboard performance. This is especially relevant in competition settings with geographic and temporal distribution shift, where threshold-sensitive metrics such as F1 can behave differently from AUC-like metrics.
 
-The challenge presents a geographic and temporal distribution shift, so robust validation and threshold-aware evaluation are essential. A model that performs well under repeated local validation may still underperform on the public leaderboard.
+## License and usage
 
-## License
+Please review the included challenge data license and documentation before redistributing or reusing the data beyond the scope of the project. The repository is intended for research, reproducibility, and educational review, with challenge-specific licensing requirements retained for the underlying dataset.
 
-Please check the included data and repository-level content for licensing terms before redistribution or commercial reuse. The repository itself is documented for research and reproducibility purposes, while the competition data retains its own licensing and attribution requirements.
+## Summary
+
+This repository presents a structured and reproducible approach to a climate-health prediction challenge, combining realistic feature engineering, iterative experimentation, and careful interpretation of model performance under competition conditions.
