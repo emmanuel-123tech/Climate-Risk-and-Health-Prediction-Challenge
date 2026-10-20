@@ -18,7 +18,7 @@
    jupyter notebook
    ```
 
-2. Open [the interpreted V16 notebook](../notebooks/Climate_Risk_Health_Prediction_V16_Interpreted.ipynb).
+2. Open [the author-uploaded V16 notebook](../_Climate_Risk_Health_Prediction_Ebiendele.ipynb).
 3. Run the cells in order. It searches for the input files in `data/raw` when launched from the cloned repository. If running in an independent Colab environment, upload an archive with `data/raw` inside when prompted.
 4. Read the Markdown interpretation immediately after each saved table or chart.
 5. Training and submission cells generate `ID`, `TargetF1` and `TargetRAUC` in the notebook's output directory.
