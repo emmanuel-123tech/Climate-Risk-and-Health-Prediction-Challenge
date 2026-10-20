@@ -20,8 +20,7 @@ The challenge weights **F1 60%** and **ROC-AUC 40%**. Binary predictions use the
 
 ## Notebooks
 
-- [**V16: executed, annotated and interpreted notebook**](notebooks/Climate_Risk_Health_Prediction_V16_Interpreted.ipynb) — data understanding, exploratory analysis, cleaning, feature engineering, validation, modeling, submission, and interpretations placed under their outputs.
-- [Original work-in-progress notebook](./_Climate_Risk_Health_Prediction_Ebiendele.ipynb) — preserved for history.
+- [**V16 author-uploaded notebook**](./_Climate_Risk_Health_Prediction_Ebiendele.ipynb) — the original code and executed outputs supplied by the project author. No additional modeling code has been inserted.
 
 ## Repository workflow
 
@@ -35,7 +34,7 @@ The challenge weights **F1 60%** and **ROC-AUC 40%**. Binary predictions use the
 
 ## Reproduce in Colab
 
-Open the interpreted notebook in [Google Colab](https://colab.research.google.com/). Run the setup cell and upload the ZIP archive containing the challenge CSVs when prompted. Alternatively use the datasets in the `data/` folder and adapt the notebook's data-root setup cell to your environment. Set a reproducible random seed and use the environment in [requirements.txt](requirements.txt).
+Open the author-uploaded notebook in [Google Colab](https://colab.research.google.com/). Run the setup cell and upload the ZIP archive containing the challenge CSVs when prompted. Alternatively use the datasets in the `data/` folder and adapt the notebook's data-root setup cell to your environment. Set a reproducible random seed and use the environment in [requirements.txt](requirements.txt).
 
 The underlying cleaned tables contain **3,146 train rows** and **1,030 test rows**. The source datasets and dictionaries originate from Zindi and should be attributed accordingly.
 
